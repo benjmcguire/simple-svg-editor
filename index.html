@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simple SVG Editor</title>
+</head>
+<body>
+	<h1>Simple SVG Editor</h1>
+
+	<svg id="canvas" width="500" height="500"></svg>
+
+	<div>
+		<button onclick="addCircle()">Add Circle</button>
+		<button onclick="addRect()">Add Rectangle</button>
+		<button onclick="clearCanvas()">Clear Canvas</button>
+	</div>
+
+	<script>
+		// Get the SVG canvas element
+		var canvas = document.getElementById("canvas");
+
+		// Define functions for adding a circle, rectangle, and clearing the canvas
+		function addCircle() {
+			var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			circle.setAttribute("cx", Math.random() * 500);
+			circle.setAttribute("cy", Math.random() * 500);
+			circle.setAttribute("r", 50);
+			circle.setAttribute("fill", "blue");
+			canvas.appendChild(circle);
+		}
+
+		function addRect() {
+			var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+			rect.setAttribute("x", Math.random() * 400);
+			rect.setAttribute("y", Math.random() * 400);
+			rect.setAttribute("width", 100);
+			rect.setAttribute("height", 50);
+			rect.setAttribute("fill", "red");
+			canvas.appendChild(rect);
+		}
+
+		function clearCanvas() {
+			canvas.innerHTML = "";
+		}
+	</script>
+</body>
+</html>
